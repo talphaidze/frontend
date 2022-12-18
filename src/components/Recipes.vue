@@ -227,6 +227,9 @@ export default {
         editRecipeForm: {
         id: "",
         name: "",
+        ingredients: "",
+        rating: "",
+        favorite: "",
       },
 
       showMessage: false,
@@ -324,7 +327,9 @@ export default {
       this.createRecipeForm.favorite = "";
       this.editRecipeForm.id = "";
       this.editRecipeForm.name = "";
-
+      this.editRecipeForm.ingredients = "";
+      this.editRecipeForm.rating = "";
+      this.editRecipeForm.favorite = "";
     },
     onSubmit(e) {
       e.preventDefault(); //prevent default form submit form the browser
@@ -344,6 +349,9 @@ export default {
       this.$refs.editRecipeModal.hide(); //hide the modal when submitted
       const payload = {
         name: this.editRecipeForm.name,
+        ingredients: this.editRecipeForm.ingredients,
+        rating: this.editRecipeForm.rating,
+        favorite: this.editRecipeForm.favorite,
       };
       this.updateRecipe(payload, this.editRecipeForm.id);
     },
@@ -353,6 +361,9 @@ export default {
     editRecipe(recipe) {
       this.editRecipeForm.name = recipe.name;
       this.editRecipeForm.id = recipe.id;
+      this.editRecipeForm.ingredients = recipe.ingredients;
+      this.editRecipeForm.rating = recipe.rating;
+      this.editRecipeForm.favorite = recipe.favorite;
     },
  
 
